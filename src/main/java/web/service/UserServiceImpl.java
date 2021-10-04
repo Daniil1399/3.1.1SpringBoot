@@ -47,4 +47,13 @@ public class UserServiceImpl implements UserService {
     public User getUserByUsername(String username) {
         return userRepository.getUserByUsername(username);
     }
+
+    @Override
+    public boolean existsUserById(long id) {
+        if (userRepository.existsById(id)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

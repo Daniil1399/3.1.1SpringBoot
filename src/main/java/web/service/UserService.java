@@ -18,4 +18,6 @@ public interface UserService {
     List<User> getAllUsers();
 
     User getUserByUsername(String username);
+
+    public boolean existsUserById(long id);
 }

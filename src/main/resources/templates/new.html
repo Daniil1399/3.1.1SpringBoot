@@ -11,15 +11,15 @@
     <form th:action="@{/admin/add-user}" th:object="${user}" method="post">
         <table border="0" cellpadding="5">
             <tr>
-                <td>Name:</td>
+                <td>Имя:</td>
                 <td><input type="text" th:field="*{username}"></td>
             </tr>
             <tr>
-                <td>Last Name:</td>
+                <td>Фамилия:</td>
                 <td><input type="text" th:field="*{lastName}"/></td>
             </tr>
             <tr>
-                <td>Phone Number:</td>
+                <td>Номер телефона:</td>
                 <td><input type="text" th:field="*{phoneNumber}"/></td>
             </tr>
             <tr>
@@ -27,11 +27,14 @@
                 <td><input type="text" th:field="*{email}"/></td>
             </tr>
             <tr>
-                <td>Password:</td>
+                <td>Пароль:</td>
                 <td><input type="text" th:field="*{password}"/></td>
             </tr>
-            <input type="checkbox" name="checkBoxRoles" value="ROLE_USER"/>USER
-            <input type="checkbox" name="checkBoxRoles" value="ROLE_ADMIN"/>ADMIN
+            <label for="role">Role</label>
+            <select class="form-select w-100" size="2" id="role" name="checkBoxRoles">
+                <option th:each="role : ${roles}"
+                        th:text="${role.name}"></option>
+            </select>
             <br/>
         </table>
         <br/>
